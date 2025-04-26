@@ -22,6 +22,7 @@ import Weddingring from './Components/product/weddingring';
 import Productview from './Components/product/productview';
 import Contactusfrom from './Components/product/contactsectionpage'
 import Contactusfrominqury from './Components/product/Contactusfrominqury'
+import Jewelry from './Components/product/Jewelry';
 function App() {
   return (
     <Router>
@@ -45,8 +46,8 @@ function App() {
           <Route path="/useraccount" element={<AccountPage />} />
           <Route path="/contactus" element={<Contactusfrom />} />
           <Route path="/contactus/:link" element={<Contactusfrominqury />} />
-          <Route path="/rings/wedding-rings" element={<Weddingring />} />
-          <Route path="/product/:link" element={<Productview />} />
+          <Route path="/:category" element={<Jewelry />} />
+          <Route path="/:category/:link" element={<Productview />} />
         </Routes>
         <Footer />
       </div>

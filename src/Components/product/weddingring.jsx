@@ -4,7 +4,7 @@ import img from "../../assest/product/r7125cry7_a1.webp"
 import img2 from "../../assest/product/r7125cry7_a5.webp"
 import { FaRegHeart } from "react-icons/fa";
 import { MdStar } from "react-icons/md";
-
+import { product } from "../../data/product";
 const filterOptions = {
     'Price Range': ['Under $100', '$100 - $500', '$500+'],
     'Type': ['Ring', 'Necklace', 'Bracelet'],
@@ -17,66 +17,7 @@ const filterOptions = {
     'Artisan': ['Handmade', 'Machine-made'],
     'Ring Size': ['6', '7', '8', '9']
 };
-const product = [
-    {
-        id: 1,
-        src: img,
-        hover: img2,
-        review: 20,
-        title: "Cooling Effects Ring, Blue ",
-        link: "Cooling-Effects-Ring-Blue",
-        rs: "40",
 
-    }, {
-        id: 2,
-        src: img,
-        hover: img2,
-        review: 20,
-        title: "Cooling Effects Ring, Blue ",
-        link: "Cooling-Effects-Ring-Blue",
-        rs: "40"
-    }, {
-        id: 3,
-        src: img,
-        hover: img2,
-        review: 20,
-        title: "Cooling Effects Ring, Blue ",
-        link: "Cooling-Effects-Ring-Blue",
-        rs: "40"
-    }, {
-        id: 4,
-        src: img,
-        hover: img2,
-        review: 20,
-        title: "Cooling Effects Ring, Blue ",
-        link: "Cooling-Effects-Ring-Blue",
-        rs: "40"
-    }, {
-        id: 5,
-        src: img,
-        hover: img2,
-        review: 20,
-        title: "Cooling Effects Ring, Blue ",
-        link: "Cooling-Effects-Ring-Blue",
-        rs: "40"
-    }, {
-        id: 6,
-        src: img,
-        hover: img2,
-        review: 20,
-        title: "Cooling Effects Ring, Blue ",
-        link: "Cooling-Effects-Ring-Blue",
-        rs: "40"
-    }, {
-        id: 7,
-        src: img,
-        hover: img2,
-        review: 20,
-        title: "Cooling Effects Ring, Blue ",
-        link: "Cooling-Effects-Ring-Blue",
-        rs: "40"
-    },
-]
 const Weddingring = () => {
     const [Open, setOpen] = useState(false)
     const [selected, setSelected] = useState({});
@@ -130,7 +71,7 @@ const Weddingring = () => {
                             </div>
                         </div>
                         <div className="flex flex-wrap w-[95%] mx-auto">
-                            <div className="hidden lg:block w-3/12">
+                            <div className="hidden w-3/12 lg:block">
                                 <h1 className="text-[20px] capitalize font-normal text-start pb-[20px] " >filters</h1>
                                 <div className="flex flex-col w-full">
                                     {Object.entries(filterOptions).map(([filter, options]) => (
@@ -166,12 +107,12 @@ const Weddingring = () => {
                                     {product.map((item, index) => (
                                         <div className="w-6/12 sm:w-4/12 relative py-[12px] px-[5px]" key={index} >
                                             <div className="w-full h-full ">
-                                                <div className="relative z-10  ">
+                                                <div className="relative z-10 ">
                                                     <div className="bg-[#f7f7f7]">
-                                                        <Link to={`/product/${item.link}`} className=" bg-gray-400 text-[#1e1e1e]   " >
+                                                        <Link to={`/${item.category}/${item.link}`} className=" bg-gray-400 text-[#1e1e1e]   " >
                                                             <div className="relative cursor-pointer group">
-                                                                <img src={item.src} className="object-cover w-full h-full transition-opacity duration-500 opacity-100 aspect-auto group-hover:opacity-0 " alt={item.title} />
-                                                                <img src={item.hover} className="absolute top-0 left-0 object-cover w-full h-full transition-opacity duration-500 opacity-0 aspect-square group-hover:opacity-100" alt={item.title} />
+                                                                <img src={item.src[0]} className="object-cover w-full h-full transition-opacity duration-500 opacity-100 aspect-auto group-hover:opacity-0 " alt={item.title} />
+                                                                <img src={item.src[4]} className="absolute top-0 left-0 object-cover w-full h-full transition-opacity duration-500 opacity-0 aspect-square group-hover:opacity-100" alt={item.title} />
                                                                 <div className="w-[50px] absolute opacity-0 group-hover:opacity-100 top-2 transition-opacity duration-500  right-2 h-[50px] bg-gray-50/50  text-blue-600 rounded-full flex justify-center items-center text-[25px]">
                                                                     <FaRegHeart />
                                                                 </div>

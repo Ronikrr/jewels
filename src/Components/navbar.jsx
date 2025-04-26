@@ -1,55 +1,62 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react';
-import { Dialog, DialogPanel } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon, MapPinIcon, PhoneIcon, MagnifyingGlassIcon, HeartIcon, ShoppingCartIcon, UserIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
-import logo from '../assest/logo/navLogo.png';
-import { Link, NavLink } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { Dialog, DialogPanel } from "@headlessui/react";
+import {
+    Bars3Icon,
+    XMarkIcon,
+    MapPinIcon,
+    PhoneIcon,
+    MagnifyingGlassIcon,
+    HeartIcon,
+    ShoppingCartIcon,
+    UserIcon,
+    ChevronDownIcon,
+} from "@heroicons/react/24/outline";
+import logo from "../assest/logo/navLogo.png";
+import { Link, NavLink } from "react-router-dom";
+import { product } from "../data/product";
+
+const filtercatagoury = [...new Set(product.map((item) => item.category))]
+console.log(filtercatagoury)
 
 const navigation = [
-    {
-        name: "Rings",
-        href: "",
-        dropdown: [
-            { name: "Wedding Rings", href: "/rings/wedding-rings" },
-            { name: "Engagement Rings", href: "/rings/engagement-rings" },
-        ],
-    },
-    // { name: 'Wedding', href: '#' },
-    { name: 'Jewelry', href: '#' },
-    { name: 'Diamonds', href: '#' },
-    { name: 'Truly Custom', href: '#' },
-    { name: 'Collections', href: '#' },
-    { name: 'Gemstones Jewelry', href: '#' },
-    { name: 'Education', href: '#' },
+    { name: "Rings", href: "rings", },
+    { name: "Jewelry", href: "jewelry" },
+    { name: "Diamonds", href: "diamonds" },
+    { name: "Truly Custom", href: "custom" },
+    { name: "Collections", href: "collection" },
+    { name: "Gemstones Jewelry", href: "#" },
+    { name: "Education", href: "#" },
 ];
 
+
 const countryList = [
-    { code: 'us', name: 'United States' },
-    { code: 'gb', name: 'United Kingdom' },
-    { code: 'fr', name: 'France' },
-    { code: 'de', name: 'Germany' },
-    { code: 'jp', name: 'Japan' },
+    { code: "us", name: "United States" },
+    { code: "gb", name: "United Kingdom" },
+    { code: "fr", name: "France" },
+    { code: "de", name: "Germany" },
+    { code: "jp", name: "Japan" },
     // Add more countries as needed
 ];
 
 export default function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const [selectedCountry, setSelectedCountry] = useState('us');
+    const [selectedCountry, setSelectedCountry] = useState("us");
     // State for both dropdowns
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [dropdownOpenuser, setDropdownOpenuser] = useState(false);
 
     // Toggle function for the first dropdown
     const toggleDropdown = () => {
-        setDropdownOpen(!dropdownOpen);          // Toggle the current dropdown
-        setDropdownOpenuser(false);              // Close the other dropdown
+        setDropdownOpen(!dropdownOpen); // Toggle the current dropdown
+        setDropdownOpenuser(false); // Close the other dropdown
     };
 
     // Toggle function for the user dropdown
     const toggleDropdownuser = () => {
-        setDropdownOpenuser(!dropdownOpenuser);  // Toggle the current dropdown
-        setDropdownOpen(false);                  // Close the other dropdown
+        setDropdownOpenuser(!dropdownOpenuser); // Toggle the current dropdown
+        setDropdownOpen(false); // Close the other dropdown
     };
 
     const selectCountry = (code) => {
@@ -80,29 +87,29 @@ export default function Navbar() {
             }
         };
 
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener("scroll", handleScroll);
         return () => {
-            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener("scroll", handleScroll);
         };
     }, []);
     const handleWishlistClick = () => {
         // Redirect to the wishlist page
-        window.location.href = '/wishlist'; // Change this to your actual wishlist page route
+        window.location.href = "/wishlist"; // Change this to your actual wishlist page route
     };
 
     const handleAddtocartClick = () => {
         // Redirect to the wishlist page
-        window.location.href = '/addtocart'; // Change this to your actual wishlist page route
+        window.location.href = "/addtocart"; // Change this to your actual wishlist page route
     };
 
     const handleCreateAccountClick = () => {
         // Redirect to the wishlist page
-        window.location.href = '/create-account'; // Change this to your actual wishlist page route
+        window.location.href = "/create-account"; // Change this to your actual wishlist page route
     };
 
     const handleMyAccountClick = () => {
         // Redirect to the wishlist page
-        window.location.href = '/useraccount'; // Change this to your actual wishlist page route
+        window.location.href = "/useraccount"; // Change this to your actual wishlist page route
     };
 
     const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -115,25 +122,38 @@ export default function Navbar() {
         setIsSearchOpen(false);
     };
 
-
     return (
-        <header className={`bg-[#fdf5e6] border-b figtree ${isSticky ? 'sticky top-0 z-50 shadow-lg' : 'relative'}`}>
-            <nav aria-label="Global" className="mx-auto hidden lg:flex w-full  items-center justify-between p-3 lg:px-7 xl:px-7 border-b border-[#16528F]">
+        <header
+            className={`bg-[#fdf5e6] border-b figtree ${isSticky ? "sticky top-0 z-50 shadow-lg" : "relative"}`}
+        >
+            <nav
+                aria-label="Global"
+                className="mx-auto hidden lg:flex w-full  items-center justify-between p-3 lg:px-7 xl:px-7 border-b border-[#16528F]"
+            >
                 {/* Left Side - Location and Contact */}
                 <div className="flex items-center space-x-4">
                     <div className="flex items-center">
                         <MapPinIcon className="w-5 h-5 mr-1 text-gray-700" />
-                        <span className="text-gray-700 text-[14px] xl:text-[16px] uppercase ms-2 font-[500] figtree">Location</span>
+                        <span className="text-gray-700 text-[14px] xl:text-[16px] uppercase ms-2 font-[500] figtree">
+                            Location
+                        </span>
                     </div>
-                    <Link to='/contactus' className="flex items-center">
+                    <Link to="/contactus" className="flex items-center">
                         <PhoneIcon className="w-5 h-5 mr-1 text-gray-700 ms-4" />
-                        <span className="text-gray-700 text-[14px] xl:text-[16px] uppercase ms-2 font-[500] figtree">Contact Us</span>
+                        <span className="text-gray-700 text-[14px] xl:text-[16px] uppercase ms-2 font-[500] figtree">
+                            Contact Us
+                        </span>
                     </Link>
                 </div>
 
                 {/* Center - Logo */}
-                <Link to="#" className="-m-1.5 p-1.5 relative left-[10px] xl:left-[80px] mainlogo">
-                    <h1 className='uppercase text-[20px] md:text-[20px] xl:text-[35px] font-bold tracking-[7px] text-[#16528F] Organum'>Jewels</h1>
+                <Link
+                    to="#"
+                    className="-m-1.5 p-1.5 relative left-[10px] xl:left-[80px] mainlogo"
+                >
+                    <h1 className="uppercase text-[20px] md:text-[20px] xl:text-[35px] font-bold tracking-[7px] text-[#16528F] Organum">
+                        Jewels
+                    </h1>
                     {/* <img alt="" src={logo} className="w-auto h-40" /> */}
                 </Link>
 
@@ -171,7 +191,9 @@ export default function Navbar() {
 
                                     {/* Search Input */}
                                     <div className="flex flex-col items-center">
-                                        <h2 className="mb-4 text-lg font-semibold text-gray-700">Search</h2>
+                                        <h2 className="mb-4 text-lg font-semibold text-gray-700">
+                                            Search
+                                        </h2>
                                         <input
                                             type="text"
                                             placeholder="Type to search..."
@@ -184,27 +206,47 @@ export default function Navbar() {
                     </div>
 
                     {/* Icons - Heart, Cart, User */}
-                    <div className="relative ml-3" style={{ marginLeft: '15px' }}>
-                        <HeartIcon className="w-6 h-6 text-gray-700 cursor-pointer hover:text-black" onClick={handleWishlistClick} />
-                        <span className="absolute px-1 text-xs text-white bg-red-500 rounded-full -top-1 -right-2">0</span>
+                    <div className="relative ml-3" style={{ marginLeft: "15px" }}>
+                        <HeartIcon
+                            className="w-6 h-6 text-gray-700 cursor-pointer hover:text-black"
+                            onClick={handleWishlistClick}
+                        />
+                        <span className="absolute px-1 text-xs text-white bg-red-500 rounded-full -top-1 -right-2">
+                            0
+                        </span>
                     </div>
-                    <ShoppingCartIcon className="w-6 h-6 text-gray-700 cursor-pointer hover:text-black" onClick={handleAddtocartClick} />
+                    <ShoppingCartIcon
+                        className="w-6 h-6 text-gray-700 cursor-pointer hover:text-black"
+                        onClick={handleAddtocartClick}
+                    />
 
                     {/* <UserIcon className="w-6 h-6 text-gray-700 cursor-pointer hover:text-black" /> */}
-                    <UserIcon onClick={toggleDropdownuser} className="w-6 h-6 text-gray-700 cursor-pointer hover:text-black" />
+                    <UserIcon
+                        onClick={toggleDropdownuser}
+                        className="w-6 h-6 text-gray-700 cursor-pointer hover:text-black"
+                    />
 
                     {/* Dropdown content */}
-                    <div className={`absolute right-[20px] top-[60px] mt-2 w-72 bg-white border border-gray-300 shadow-lg rounded-md p-6 z-10 transition-all duration-300 ease-in-out overflow-hidden ${dropdownOpenuser ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}>
+                    <div
+                        className={`absolute right-[20px] top-[60px] mt-2 w-72 bg-white border border-gray-300 shadow-lg rounded-md p-6 z-10 transition-all duration-300 ease-in-out overflow-hidden ${dropdownOpenuser ? "max-h-screen opacity-100" : "max-h-0 opacity-0"}`}
+                    >
                         <p className="text-sm text-gray-600">Don t have an account?</p>
 
-                        <button className="w-full bg-[#16528f] text-white rounded-md py-2 mt-2 hover:bg-blue-700" onClick={handleCreateAccountClick}>
+                        <button
+                            className="w-full bg-[#16528f] text-white rounded-md py-2 mt-2 hover:bg-blue-700"
+                            onClick={handleCreateAccountClick}
+                        >
                             Create Account
                         </button>
 
-                        <h2 className="mt-2 text-sm font-semibold">Sign In to Your Account</h2>
+                        <h2 className="mt-2 text-sm font-semibold">
+                            Sign In to Your Account
+                        </h2>
 
                         {/* Email Input */}
-                        <label className="block mt-4 text-sm font-medium text-gray-700">Email *</label>
+                        <label className="block mt-4 text-sm font-medium text-gray-700">
+                            Email *
+                        </label>
                         <input
                             type="email"
                             className="w-full p-2 mt-1 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
@@ -212,7 +254,9 @@ export default function Navbar() {
                         />
 
                         {/* Password Input */}
-                        <label className="block mt-4 text-sm font-medium text-gray-700">Password *</label>
+                        <label className="block mt-4 text-sm font-medium text-gray-700">
+                            Password *
+                        </label>
                         <input
                             type="password"
                             className="w-full p-2 mt-1 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
@@ -266,7 +310,6 @@ export default function Navbar() {
                                         />
                                     </g>
                                 </svg>
-
                             </button>
                             <button className="py-2 ">
                                 <svg
@@ -321,7 +364,6 @@ export default function Navbar() {
                                         />
                                     </g>
                                 </svg>
-
                             </button>
                         </div>
                     </div>
@@ -370,16 +412,17 @@ export default function Navbar() {
                 ))}
             </div> */}
             <div className="mx-auto w-full  hidden lg:flex justify-between space-x-6 bg-[#fdf5e6] py-5  lg:px-7">
-                {navigation.map((item) => (
+                {filtercatagoury.map((item) => (
                     <div key={item.name} className="relative">
-                        {item.dropdown ? (
+                        {item ? (
                             <div>
-                                <button
-                                    onClick={handleDropdownToggle}
+                                <NavLink
+                                    // onClick={handleDropdownToggle}
+                                    to={`/${item}`}
                                     className="font-[500] uppercase leading-6 text-[14px] xl:text-[16px] text-gray-900 hover:text-gray-700"
                                 >
-                                    {item.name}
-                                </button>
+                                    {item}
+                                </NavLink>
                                 {isDropdownOpen && (
                                     <div
                                         className="absolute left-0 z-10 w-48 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg"
@@ -399,7 +442,7 @@ export default function Navbar() {
                             </div>
                         ) : (
                                 <NavLink
-                                href={item.href}
+                                    to={`/${item.href}`}
                                 className="font-[500] uppercase leading-6 text-[14px] xl:text-[16px] text-gray-900 hover:text-gray-700"
                             >
                                 {item.name}
@@ -413,26 +456,40 @@ export default function Navbar() {
             <div className="lg:hidden">
                 <div className="flex items-center justify-between p-4 border-t border-gray-200">
                     <NavLink to="#" className="-m-1.5 p-1.5">
-                        <h1 className='uppercase text-[16px] lg:text-[35px] font-bold text-[#16528F] Organum'>JewellsJewels</h1>
+                        <h1 className="uppercase text-[16px] lg:text-[35px] font-bold text-[#16528F] Organum">
+                            JewellsJewels
+                        </h1>
                     </NavLink>
                     <div className="flex items-center space-x-4">
                         <HeartIcon className="w-6 h-6 text-gray-700 cursor-pointer hover:text-black" />
                         <ShoppingCartIcon className="w-6 h-6 text-gray-700 cursor-pointer hover:text-black" />
                         {/* <UserIcon className="w-6 h-6 text-gray-700 cursor-pointer hover:text-black" /> */}
-                        <UserIcon onClick={toggleDropdownuser} className="w-6 h-6 text-gray-700 cursor-pointer hover:text-black" />
+                        <UserIcon
+                            onClick={toggleDropdownuser}
+                            className="w-6 h-6 text-gray-700 cursor-pointer hover:text-black"
+                        />
 
                         {/* Dropdown content */}
-                        <div className={`absolute right-[15px] top-[80px] mt-2 w-72 bg-white border border-gray-300 shadow-lg rounded-md p-6 z-10 transition-all duration-300 ease-in-out overflow-hidden ${dropdownOpenuser ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}>
+                        <div
+                            className={`absolute right-[15px] top-[80px] mt-2 w-72 bg-white border border-gray-300 shadow-lg rounded-md p-6 z-10 transition-all duration-300 ease-in-out overflow-hidden ${dropdownOpenuser ? "max-h-screen opacity-100" : "max-h-0 opacity-0"}`}
+                        >
                             <p className="text-sm text-gray-600">Dont have an account?</p>
 
-                            <button className="w-full bg-[#16528f] text-white rounded-md py-2 mt-2 hover:bg-blue-700" onClick={handleCreateAccountClick}>
+                            <button
+                                className="w-full bg-[#16528f] text-white rounded-md py-2 mt-2 hover:bg-blue-700"
+                                onClick={handleCreateAccountClick}
+                            >
                                 Create Account
                             </button>
 
-                            <h2 className="mt-2 text-sm font-semibold">Sign In to Your Account</h2>
+                            <h2 className="mt-2 text-sm font-semibold">
+                                Sign In to Your Account
+                            </h2>
 
                             {/* Email Input */}
-                            <label className="block mt-4 text-sm font-medium text-gray-700">Email *</label>
+                            <label className="block mt-4 text-sm font-medium text-gray-700">
+                                Email *
+                            </label>
                             <input
                                 type="email"
                                 className="w-full p-2 mt-1 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
@@ -440,7 +497,9 @@ export default function Navbar() {
                             />
 
                             {/* Password Input */}
-                            <label className="block mt-4 text-sm font-medium text-gray-700">Password *</label>
+                            <label className="block mt-4 text-sm font-medium text-gray-700">
+                                Password *
+                            </label>
                             <input
                                 type="password"
                                 className="w-full p-2 mt-1 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
@@ -448,7 +507,10 @@ export default function Navbar() {
                             />
 
                             <div className="flex justify-between mt-2 underline">
-                                <NavLink to="#" className="text-sm text-blue-600 hover:underline">
+                                <NavLink
+                                    to="#"
+                                    className="text-sm text-blue-600 hover:underline"
+                                >
                                     Forgot Your Password?
                                 </NavLink>
                             </div>
@@ -494,7 +556,6 @@ export default function Navbar() {
                                             />
                                         </g>
                                     </svg>
-
                                 </button>
                                 <button className="py-2 ">
                                     <svg
@@ -549,7 +610,6 @@ export default function Navbar() {
                                             />
                                         </g>
                                     </svg>
-
                                 </button>
                             </div>
                         </div>
@@ -567,7 +627,6 @@ export default function Navbar() {
                             placeholder="Search..."
                         />
                         <MagnifyingGlassIcon className="absolute w-5 h-5 text-gray-500 top-1 right-2" />
-
                     </div>
                     <div className="relative z-20">
                         <button
@@ -596,21 +655,27 @@ export default function Navbar() {
                                         />
                                         <span className="ml-2 text-sm">{country.name}</span>
                                     </button>
-
                                 ))}
                             </div>
                         )}
                     </div>
 
                     {/* Mobile Toggle Menu */}
-                    <Dialog Dialog open={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)}>
+                    <Dialog
+                        Dialog
+                        open={mobileMenuOpen}
+                        onClose={() => setMobileMenuOpen(false)}
+                    >
                         <div className="fixed inset-0 z-10 bg-black bg-opacity-30" />
                         <DialogPanel className="fixed inset-y-0 left-0 z-20 w-full p-6 overflow-y-auto bg-white">
                             <div className="flex items-center justify-between">
-                                <h1 className='uppercase text-[20px] lg:text-[35px] font-bold tracking-[4px] text-[#16528F] Organum'>JewellsJewels</h1>
+                                <h1 className="uppercase text-[20px] lg:text-[35px] font-bold tracking-[4px] text-[#16528F] Organum">
+                                    JewellsJewels
+                                </h1>
                                 <button
                                     onClick={() => setMobileMenuOpen(false)}
-                                    className="text-gray-700">
+                                    className="text-gray-700"
+                                >
                                     <XMarkIcon className="w-6 h-6" />
                                 </button>
                             </div>
@@ -624,7 +689,9 @@ export default function Navbar() {
                                         >
                                             {item.name}
                                         </NavLink>
-                                        {index < navigation.length - 1 && <hr className="border-gray-300" />}
+                                        {index < navigation.length - 1 && (
+                                            <hr className="border-gray-300" />
+                                        )}
                                         {/* {index === 1 && (
                                         <div className="relative">
                                             <button
@@ -668,7 +735,6 @@ export default function Navbar() {
         </header>
     );
 }
-
 
 // dropdown
 // 'use client';
