@@ -1,0 +1,304 @@
+html {
+  overflow-x: hidden;
+}
+
+.section-gap {
+  height: 100px;
+}
+/* Add to your global CSS or Tailwind config */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.responsive-usp .slick-track {
+  display: flex;
+  gap: 10px;
+}
+
+.responsive-usp .slick-dots li button {
+  border: 1px solid #000;
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 50px !important;
+}
+
+.slick-dots li button:before {
+  top: -4px !important;
+  left: 1px !important;
+  width: 10px !important;
+  height: 10px !important;
+}
+
+.ShopbyShape .ShopbyShapebox {
+  display: flex !important;
+}
+
+.ShopbyShape .slick-prev {
+  left: -5px;
+}
+
+.ShopbyShape .slick-next {
+  right: -5px;
+}
+
+
+.gift .slick-next {
+  right: 15px;
+  top: -85px;
+}
+
+.gift .slick-prev {
+  left: 96%;
+  top: -85px;
+}
+
+.gift .undefined {
+  display: none;
+}
+
+.youmayalsolikeheading::after {
+  position: absolute;
+  width: 40%;
+  height: 1px;
+  border-bottom: 2px solid #16528F;
+  right: 0;
+  top: 50%;
+  content: '';
+}
+
+.youmayalsolikeheading::before {
+  position: absolute;
+  width: 40%;
+  height: 1px;
+  border-bottom: 2px solid #16528F;
+  left: 0;
+  top: 50%;
+  content: '';
+}
+
+.reiewdate {
+  margin-left: auto !important;
+}
+
+/* wishlist */
+.wishlist-container {
+  display: inline-block;
+  background-color: #16528f;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .wishlist-container:hover {
+  background-color: #ececec;
+} */
+
+.heart-icon,
+.done-icon,
+.loading-icon {
+  transition: opacity 0.3s ease;
+}
+
+.loading-icon {
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.wishlist-container.done {
+  background-color: #d4edda;
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 370px) {
+  .responsiveshopby .ringshopby {
+    left: 46px;
+  }
+
+  .responsiveshopby span {
+    left: 36px;
+  }
+
+  .youmayalsolikeheading::after {
+    width: 10%;
+  }
+
+  .youmayalsolikeheading::before {
+    width: 10%;
+  }
+
+}
+
+@media (min-width: 375px) {
+  .mobile-search {
+    width: 270px;
+  }
+
+  .youmayalsolikeheading::after {
+    width: 15%;
+  }
+
+  .youmayalsolikeheading::before {
+    width: 15%;
+  }
+}
+
+@media (min-width: 425px) {
+  .responsiveshopby .ringshopby {
+    left: 76px;
+  }
+
+  .responsiveshopby span {
+    left: 60px;
+  }
+
+  .youmayalsolikeheading::after {
+    width: 20%;
+  }
+
+  .youmayalsolikeheading::before {
+    width: 20%;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-search {
+    width: 670px;
+  }
+
+  .shopfirstimage img {
+    height: 286px;
+  }
+
+  .gift .slick-prev {
+    left: 92%;
+    top: -73px;
+  }
+
+  .gift .slick-next {
+    top: -73px;
+  }
+
+  .youmayalsolikeheading::after {
+    width: 30%;
+  }
+
+  .youmayalsolikeheading::before {
+    width: 30%;
+  }
+}
+
+@media (min-width: 992px) {
+  .shopfirstimage img {
+    height: 373px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .shopfirstimage img {
+    height: 386px;
+  }
+}
+
+@media (min-width: 1080px) {
+  .shopfirstimage img {
+    height: 408px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .shopfirstimage img {
+    height: 456px;
+  }
+
+  .gift .slick-prev {
+    left: 94%;
+  }
+
+  .youmayalsolikeheading::after {
+    width: 35%;
+  }
+
+  .youmayalsolikeheading::before {
+    width: 35%;
+  }
+}
+
+@media (min-width: 1400px) {
+  .shopfirstimage img {
+    height: 532px;
+  }
+
+  .gift .slick-prev {
+    left: 94%;
+  }
+
+  .youmayalsolikeheading::after {
+    width: 38%;
+  }
+
+  .youmayalsolikeheading::before {
+    width: 38%;
+  }
+}
+
+@media (min-width: 1600px) {
+  .shopfirstimage img {
+    height: 610px;
+  }
+
+  .gift .slick-prev {
+    left: 96%;
+  }
+}
+
+@media (min-width: 1920px) {
+  .shopfirstimage img {
+    height: 672px;
+  }
+
+  .youmayalsolikeheading::after {
+    width: 40%;
+  }
+
+  .youmayalsolikeheading::before {
+    width: 40%;
+  }
+}
+
+@media (max-width: 1024px) {
+
+  .section-gap {
+    height: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-gap {
+    height: 50px;
+  }
+}

@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Your-Font-Name:ital,wght@0,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+
+li{
+    list-style: none;
+}
+.inter {
+    font-family: 'Inter', sans-serif;
+}
+.figtree{
+    font-family: "Figtree", sans-serif;
+}
+.Organum{
+    font-family: 'VVDS Organum Thin'
+}
+.primary{
+    color: #16528F;
+}
+.lato {
+    font-family: "Lato", sans-serif;
+}
+.primary{
+    background-color: #16528F;
+} 
+summary{
+    list-style: none !important;
+}
+/* slider */
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+
+
+/* body {
+    font-family: "Figtree", sans-serif;
+} */
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+::-webkit-scrollbar-track {
+    background-color: #ebebeb;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #6d6d6d; 
+}
