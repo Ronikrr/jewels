@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import {  NavLink, useParams } from "react-router-dom";
 
 import img from "../../assest/product/r7125cry7_a1.webp";
 import img2 from "../../assest/product/view/r7125cry7_a2 (1).webp";
@@ -146,15 +146,15 @@ const Productview = () => {
                             <p className="text-sm text-gray-600">
                                 Starting at $22 every 2 weeks with{" "}
                                 <span className="font-semibold">affirm</span>.{" "}
-                                <a href="" className="underline">
+                                <NavLink to="" className="underline">
                                     Learn more
-                                </a>{" "}
+                                </NavLink>{" "}
                             </p>
                             <div className="mt-3 text-sm font-semibold text-blue-700">
                                 <span className="border-r border-[#1e1e1e] pe-4">IN STOCK</span>{" "}
-                                <a href="#" className="ml-4 text-[#1e1e1e] underline">
+                                <NavLink to="#" className="ml-4 text-[#1e1e1e] underline">
                                     Size Chart
-                                </a>
+                                </NavLink>
                             </div>
                             <div className="pb-4 mt-4 border-b border-gray-100">
                                 <p className="mb-1 text-sm text-gray-800">SIZE: {size}</p>
@@ -191,9 +191,9 @@ const Productview = () => {
                                     </button>
                                 </div>
 
-                                <Link to={`/contactus/${selectedProduct.link}`} state={{size:size}} className="px-8 py-3 text-lg font-semibold text-center text-white capitalize bg-blue-900 rounded">
+                                <NavLink to={`/contactus/${selectedProduct.link}`} state={{ size: size }} className="px-8 py-3 text-lg font-semibold text-center text-white capitalize bg-blue-900 rounded">
                                     inqury now
-                                </Link>
+                                </NavLink>
 
                                 <button className="text-xl text-blue-900">
                                     {" "}
@@ -275,7 +275,7 @@ const Productview = () => {
                                 },
                             }}
                             navigation
-                            pagination={{ clickable: true }}
+                            // pagination={{ clickable: true }}
                             scrollbar={{ draggable: true }}
                             onSwiper={(swiper) => console.log(swiper)}
                             onSlideChange={() => console.log('slide change')}
@@ -285,7 +285,7 @@ const Productview = () => {
                                     <div className="w-full h-full ">
                                         <div className="relative z-10 ">
                                             <div className="bg-[#f7f7f7]">
-                                                <Link to={`/product/${item.link}`} className=" bg-gray-400 text-[#1e1e1e]   " >
+                                                <NavLink to={`/product/${item.link}`} className=" bg-gray-400 text-[#1e1e1e]   " >
                                                     <div className="relative cursor-pointer group">
                                                         <img src={item.src[0]} className="object-cover w-full h-full transition-opacity duration-500 opacity-100 aspect-auto group-hover:opacity-0 " alt={item.title} />
                                                         <img src={item.src[4]} className="absolute top-0 left-0 object-cover w-full h-full transition-opacity duration-500 opacity-0 aspect-square group-hover:opacity-100" alt={item.title} />
@@ -296,7 +296,7 @@ const Productview = () => {
                                                             <p>Quick view</p>
                                                         </div>
                                                     </div>
-                                                </Link>
+                                                </NavLink>
                                             </div>
                                             <div className="relative w-full pt-[10px] ">
                                                 <div className="flex flex-row items-center gap-2">

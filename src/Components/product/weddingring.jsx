@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FaRegHeart } from "react-icons/fa";
 import { MdStar } from "react-icons/md";
 import { product } from "../../data/product";
@@ -107,7 +107,7 @@ const Weddingring = () => {
                                             <div className="w-full h-full ">
                                                 <div className="relative z-10 ">
                                                     <div className="bg-[#f7f7f7]">
-                                                        <Link to={`/${item.category}/${item.link}`} className=" bg-gray-400 text-[#1e1e1e]   " >
+                                                        <NavLink to={`/${item.category}/${item.link}`} className=" bg-gray-400 text-[#1e1e1e]   " >
                                                             <div className="relative cursor-pointer group">
                                                                 <img src={item.src[0]} className="object-cover w-full h-full transition-opacity duration-500 opacity-100 aspect-auto group-hover:opacity-0 " alt={item.title} />
                                                                 <img src={item.src[4]} className="absolute top-0 left-0 object-cover w-full h-full transition-opacity duration-500 opacity-0 aspect-square group-hover:opacity-100" alt={item.title} />
@@ -118,7 +118,7 @@ const Weddingring = () => {
                                                                     <p>Quick view</p>
                                                                 </div>
                                                             </div>
-                                                        </Link>
+                                                        </NavLink>
                                                     </div>
                                                     <div className="relative w-full pt-[10px] ">
                                                         <div className="flex flex-row items-center gap-2">

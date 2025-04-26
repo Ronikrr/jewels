@@ -14,7 +14,7 @@ import {
     ChevronDownIcon,
 } from "@heroicons/react/24/outline";
 
-import { Link, NavLink } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 import { product } from "../data/product";
 
 const filtercatagoury = [...new Set(product.map((item) => item.category))];
@@ -118,24 +118,24 @@ export default function Navbar() {
                             Location
                         </span>
                     </div>
-                    <Link to="/contactus" className="flex items-center">
+                    <NavLink to="/contactus" className="flex items-center">
                         <PhoneIcon className="w-5 h-5 mr-1 text-gray-700 ms-4" />
                         <span className="text-gray-700 text-[14px] xl:text-[16px] uppercase ms-2 font-[500] figtree">
                             Contact Us
                         </span>
-                    </Link>
+                    </NavLink>
                 </div>
 
                 {/* Center - Logo */}
-                <Link
-                    to="#"
+                <NavLink
+                    to="/"
                     className="-m-1.5 p-1.5 relative left-[10px] xl:left-[80px] mainlogo"
                 >
                     <h1 className="uppercase text-[20px] md:text-[20px] xl:text-[35px] font-bold tracking-[7px] text-[#16528F] Organum">
                         Jewels
                     </h1>
                     {/* <img alt="" src={logo} className="w-auto h-40" /> */}
-                </Link>
+                </NavLink>
 
                 {/* Right Side - Search, Icons */}
                 <div className="flex items-center space-x-6">
