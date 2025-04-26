@@ -1,13 +1,5 @@
-import React, { useState } from "react";
-import {  NavLink, useParams } from "react-router-dom";
-
-import img from "../../assest/product/r7125cry7_a1.webp";
-import img2 from "../../assest/product/view/r7125cry7_a2 (1).webp";
-import img3 from "../../assest/product/view/r7125cry7_a4.webp";
-import img4 from "../../assest/product/r7125cry7_a5.webp";
-import img5 from "../../assest/product/r7125cry7_a19.webp";
-import img6 from "../../assest/product/view/r7125cry7_a20.webp";
-import img7 from "../../assest/product/view/low_resolution.jpg";
+import React, { useEffect, useRef, useState } from "react";
+import { NavLink, useParams } from "react-router-dom";
 import { MdStar } from "react-icons/md";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { IoIosRemoveCircleOutline } from "react-icons/io";
@@ -17,112 +9,67 @@ import { FaAngleUp } from "react-icons/fa6";
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import {product} from '../../data/product' 
+import { product } from '../../data/product'
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 // import 'swiper/css/scrollbar';
-const products = [
-    {
-        id: 1,
-        src: [img, img2, img3, img4, img5, img6, img7],
 
-        review: 20,
-        title: "Cooling Effects Ring, Blue ",
-        link: "Cooling-Effects-Ring-Blue",
-        rs: "40",
-    },
-    {
-        id: 2,
-        src: [img, img2, img3, img4, img5, img6, img7],
-        review: 20,
-        title: "Cooling Effects Ring, Blue ",
-        link: "Cooling-Effects-Ring-Blue",
-        rs: "40",
-    },
-    {
-        id: 3,
-        src: [img, img2, img3, img4, img5, img6, img7],
-
-        review: 20,
-        title: "Cooling Effects Ring, Blue ",
-        link: "Cooling-Effects-Ring-Blue",
-        rs: "40",
-    },
-    {
-        id: 4,
-        src: [img, img2, img3, img4, img5, img6, img7],
-
-        review: 20,
-        title: "Cooling Effects Ring, Blue ",
-        rs: "40",
-    },
-    {
-        id: 5,
-        src: [img, img2, img3, img4, img5, img6, img7],
-
-        review: 20,
-        title: "Cooling Effects Ring, Blue ",
-        link: "Cooling-Effects-Ring-Blue",
-        rs: "40",
-    },
-    {
-        id: 6,
-        src: [img, img2, img3, img4, img5, img6, img7],
-
-        review: 20,
-        title: "Cooling Effects Ring, Blue ",
-        link: "Cooling-Effects-Ring-Blue",
-        rs: "40",
-    },
-    {
-        id: 7,
-        src: [img, img2, img3, img4, img5, img6, img7],
-
-        review: 20,
-        title: "Cooling Effects Ring, Blue ",
-        link: "Cooling-Effects-Ring-Blue",
-        rs: "40",
-    },
-];
 const Productview = () => {
     const { link } = useParams();
     const [size, setSize] = useState(10);
     const [quantity, setQuantity] = useState(1);
-    const [Open, setOpen] = useState(false);
-
-    const dropdown = () => {
-        setOpen(!Open);
-    };
-
-    const sizes = [5, 6, 7, 8, 9, 10, 11];
-
+    const [IsContentScrollEnable, setIsContentScrollEnable] = useState(false)
+    const ImageContainerRef = useRef(null)
     // Match product by title (case-insensitive)
     const selectedProduct = product.find(
         (p) =>
             p.link && p.link.toLowerCase() === decodeURIComponent(link).toLowerCase()
     );
 
+    useEffect(() => {
+        if (!IsContentScrollEnable) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
+
+        return () => {
+            document.body.style.overflow = "auto"; // Reset scroll when component unmounts
+        };
+    }, [IsContentScrollEnable]);
     if (!selectedProduct) {
         return <div className="py-10 text-center">Product not found</div>;
+    }
+
+    const handleImageScroll = () => {
+        const container = ImageContainerRef.current
+        if (container) {
+            const isBottom = container.scrollHeight - container.scrollTop === container.clientHeight;
+            if (isBottom) {
+                setIsContentScrollEnable(true)
+            }
+        }
     }
 
     return (
         <div className="view lato">
             <div className="py-[48px] p-0 lg:px-[20px] flex container mx-auto">
                 <div className="flex flex-wrap">
-                    <div className="w-full lg:w-6/12 p-[12px] h-[80vh] overflow-y-auto scrollbar-hide">
-                        <div className="bg-[#f7f7f7]">
-                            <div className="flex flex-col space-y-2">
-                                {selectedProduct.src.map((imgSrc, index) => (
+                    <div className="w-full lg:w-6/12 p-[12px] h-[80vh] overflow-y-auto scrollbar-hide" onScroll={handleImageScroll}
+                        ref={ImageContainerRef} >
+                        <div className="">
+                            {selectedProduct.src.map((imgSrc, index) => (
+                                <div className="flex flex-col ">
                                     <img
                                         key={index}
                                         src={imgSrc}
                                         alt={`Product view ${index + 1}`}
+                                        className="object-cover bg-[#f7f7f7]  mb-5 rounded-md"
                                     />
-                                ))}
-                            </div>
+                                </div>
+                            ))}
                         </div>
                     </div>
                     <div className="w-full lg:w-5/12 p-[12px] lg:ml-[8.33%] ">

@@ -1,7 +1,7 @@
 import React from 'react';
 import image1 from '../assest/About/1.jpg'
 import image2 from '../assest/About/2.jpg'
-import image3 from '../assest/About/4.jpg'
+
 import aboutbanner from '../assest/About/aboutbanner.jpg'
 
 const AboutUs = () => {
@@ -18,12 +18,7 @@ const AboutUs = () => {
                 "At, we believe that jewelry is more than just an accessory—it’s an expression of who you are. Our collection is carefully curated to bring you the finest designs made with precision and high-quality materials. Whether you are looking for something classic or contemporary, we have the perfect piece to complement your style.",
             imgUrl: image2,
         },
-        // {
-        //     title: "Our Team",
-        //     content:
-        //         "Our team is comprised of skilled artisans, designers, and jewelry experts who are passionate about creating timeless and stunning jewelry pieces. Each member of our team brings unique expertise and a dedication to ensuring that every piece meets the highest standards of craftsmanship.",
-        //     imgUrl: image3,
-        // },
+   
     ];
     return (
         <>
@@ -33,10 +28,10 @@ const AboutUs = () => {
                     <img
                         src={aboutbanner}
                         alt="About Banner"
-                        className="w-full h-full object-cover "
+                        className="object-cover w-full h-full "
                     />
-                    <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                        <h1 className="text-white text-5xl font-bold Organum">About Us</h1>
+                    <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                        <h1 className="text-5xl font-bold text-white Organum">About Us</h1>
                     </div>
                 </section>
                 <div className="section-gap"></div>
@@ -51,7 +46,7 @@ const AboutUs = () => {
                                     }`}
                             >
                                 {/* Image with Box Background */}
-                                <div className="relative w-full lg:w-1/2 p-8">
+                                <div className="relative w-full p-8 lg:w-1/2">
                                     {/* <div className="absolute top-4 left-4 w-full h-full bg-[#16528f] transform -rotate-2 z-0"></div> */}
                                     <img
                                         src={section.imgUrl}
@@ -61,9 +56,9 @@ const AboutUs = () => {
                                 </div>
 
                                 {/* Text Content */}
-                                <div className="w-full lg:w-1/2 p-8">
-                                    <h2 className="text-xl lg:text-4xl font-semibold text-gray-800 mb-3 lg:mb-6 figtre">{section.title}</h2>
-                                    <p className="text-md font-light text-gray-600 inter">{section.content}</p>
+                                <div className="w-full p-8 lg:w-1/2">
+                                    <h2 className="mb-3 text-xl font-semibold text-gray-800 lg:text-4xl lg:mb-6 figtre">{section.title}</h2>
+                                    <p className="font-light text-gray-600 text-md inter">{section.content}</p>
                                 </div>
                             </div>
                         ))}
