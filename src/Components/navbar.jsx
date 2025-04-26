@@ -19,15 +19,6 @@ import { product } from "../data/product";
 
 const filtercatagoury = [...new Set(product.map((item) => item.category))];
 
-const navigation = [
-    { name: "Rings", href: "rings" },
-    { name: "Jewelry", href: "jewelry" },
-    { name: "Diamonds", href: "diamonds" },
-    { name: "Truly Custom", href: "custom" },
-    { name: "Collections", href: "collection" },
-    { name: "Gemstones Jewelry", href: "#" },
-    { name: "Education", href: "#" },
-];
 
 const countryList = [
     { code: "us", name: "United States" },
