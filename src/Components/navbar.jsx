@@ -13,12 +13,11 @@ import {
     UserIcon,
     ChevronDownIcon,
 } from "@heroicons/react/24/outline";
-import logo from "../assest/logo/navLogo.png";
+
 import { Link, NavLink } from "react-router-dom";
 import { product } from "../data/product";
 
 const filtercatagoury = [...new Set(product.map((item) => item.category))]
-console.log(filtercatagoury)
 
 const navigation = [
     { name: "Rings", href: "rings", },
@@ -66,9 +65,7 @@ export default function Navbar() {
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-    const handleDropdownToggle = () => {
-        setIsDropdownOpen((prev) => !prev);
-    };
+
 
     const closeDropdown = () => {
         setIsDropdownOpen(false);
@@ -106,11 +103,7 @@ export default function Navbar() {
         // Redirect to the wishlist page
         window.location.href = "/create-account"; // Change this to your actual wishlist page route
     };
-
-    const handleMyAccountClick = () => {
-        // Redirect to the wishlist page
-        window.location.href = "/useraccount"; // Change this to your actual wishlist page route
-    };
+   
 
     const [isSearchOpen, setIsSearchOpen] = useState(false);
 

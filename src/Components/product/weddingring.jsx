@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import img from "../../assest/product/r7125cry7_a1.webp"
-import img2 from "../../assest/product/r7125cry7_a5.webp"
 import { FaRegHeart } from "react-icons/fa";
 import { MdStar } from "react-icons/md";
 import { product } from "../../data/product";

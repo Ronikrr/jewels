@@ -18,7 +18,6 @@ import ShippingPolicies from './Components/ShippingPolicies';
 import ReturnPolicies from './Components/ReturnPolicies';
 import CreateAccountPage from './Components/CreateAccountPage';
 import AccountPage from './Components/AccountPage';
-import Weddingring from './Components/product/weddingring';
 import Productview from './Components/product/productview';
 import Contactusfrom from './Components/product/contactsectionpage'
 import Contactusfrominqury from './Components/product/Contactusfrominqury'
