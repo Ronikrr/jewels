@@ -87,6 +87,10 @@ export const product = [
         size: ["6", "7", "8"],
     },
 ];
-export const SERVICE_KEY ="service_soybehv"
-export const TEMPLATE_KEY ="service_soybehv"
-export const API_KEY ="service_soybehv"
+export const SERVICE_INQURY_KEY ="service_soybehv"
+export const TEMPLATE_INQURY_KEY ="template_73gw0e4"
+export const API_INQURY_KEY = "yC07B7kWN5O46D558"
+
+export const SERVICE_CONTACT_KEY = "service_soybehv"
+export const TEMPLATE_CONTACT_KEY ="template_4t4vayi"
+export const API_CONTACT_KEY ="yC07B7kWN5O46D558"

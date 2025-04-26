@@ -3,7 +3,7 @@ import PhoneInput from 'react-phone-number-input/input'
 import "react-phone-number-input/style.css";
 import { countryList } from '../../data/country.utils';
 import { useParams } from 'react-router-dom';
-import { product , SERVICE_KEY,TEMPLATE_KEY,API_KEY } from '../../data/product';
+import { product , SERVICE_INQURY_KEY,TEMPLATE_INQURY_KEY,API_INQURY_KEY } from '../../data/product';
 import emailjs from '@emailjs/browser';
 import { useLocation } from 'react-router-dom';
 const insensitive = {
@@ -47,10 +47,10 @@ const Contactusfrominqury = () => {
         };
         console.log(payload)
         emailjs.send(
-            SERVICE_KEY,
-            TEMPLATE_KEY,
+            SERVICE_INQURY_KEY,
+            TEMPLATE_INQURY_KEY,
             payload,
-            API_KEY
+            API_INQURY_KEY
         )
             .then((result) => {
                 console.log('Email successfully sent!', result.text);
