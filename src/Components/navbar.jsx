@@ -17,10 +17,10 @@ import {
 import { Link, NavLink } from "react-router-dom";
 import { product } from "../data/product";
 
-const filtercatagoury = [...new Set(product.map((item) => item.category))]
+const filtercatagoury = [...new Set(product.map((item) => item.category))];
 
 const navigation = [
-    { name: "Rings", href: "rings", },
+    { name: "Rings", href: "rings" },
     { name: "Jewelry", href: "jewelry" },
     { name: "Diamonds", href: "diamonds" },
     { name: "Truly Custom", href: "custom" },
@@ -28,7 +28,6 @@ const navigation = [
     { name: "Gemstones Jewelry", href: "#" },
     { name: "Education", href: "#" },
 ];
-
 
 const countryList = [
     { code: "us", name: "United States" },
@@ -64,8 +63,6 @@ export default function Navbar() {
     };
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-
 
     const closeDropdown = () => {
         setIsDropdownOpen(false);
@@ -103,7 +100,6 @@ export default function Navbar() {
         // Redirect to the wishlist page
         window.location.href = "/create-account"; // Change this to your actual wishlist page route
     };
-   
 
     const [isSearchOpen, setIsSearchOpen] = useState(false);
 
@@ -416,33 +412,37 @@ export default function Navbar() {
                                 >
                                     {item}
                                 </NavLink>
-                                {isDropdownOpen && (
-                                    <div
-                                        className="absolute left-0 z-10 w-48 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg"
-                                        onMouseLeave={closeDropdown}
-                                    >
-                                        {item.dropdown.map((dropdownItem) => (
-                                            <NavLink
-                                                key={dropdownItem.name}
-                                                to={dropdownItem.href}
-                                                className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-gray-900"
-                                            >
-                                                {dropdownItem.name}
-                                            </NavLink>
-                                        ))}
-                                    </div>
-                                )}
-                            </div>
-                        ) : (
-                                <NavLink
-                                    to={`/${item.href}`}
+
+                              {isDropdownOpen && (
+                                  <div
+                                      className="absolute left-0 z-10 w-48 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg"
+                                      onMouseLeave={closeDropdown}
+                                  >
+                                      {item.dropdown.map((dropdownItem) => (
+                                          <NavLink
+                                              key={dropdownItem.name}
+                                              to={dropdownItem.href}
+                                              className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-gray-900"
+                                          >
+                                              {dropdownItem.name}
+                                          </NavLink>
+                                      ))}
+                                  </div>
+                              )}
+                          </div>
+                      ) : (
+                              <>
+                                  <NavLink
+                                      to={`/${item.href}`}
                                 className="font-[500] uppercase leading-6 text-[14px] xl:text-[16px] text-gray-900 hover:text-gray-700"
                             >
                                 {item.name}
-                                </NavLink>
-                        )}
-                    </div>
-                ))}
+                                  </NavLink>
+
+                              </>
+                      )}
+                  </div>
+              ))}
             </div>
 
             {/* Mobile Menu */}
@@ -674,7 +674,7 @@ export default function Navbar() {
                             </div>
 
                             <div className="mt-6 space-y-4">
-                                {navigation.map((item, index) => (
+                                {filtercatagoury.map((item, index) => (
                                     <div key={item.name}>
                                         <NavLink
                                             to={item.href}
@@ -682,10 +682,10 @@ export default function Navbar() {
                                         >
                                             {item.name}
                                         </NavLink>
-                                        {index < navigation.length - 1 && (
-                                            <hr className="border-gray-300" />
-                                        )}
-                                        {/* {index === 1 && (
+                                      {index < filtercatagoury.length - 1 && (
+                                          <hr className="border-gray-300" />
+                                      )}
+                                      {/* {index === 1 && (
                                         <div className="relative">
                                             <button
                                                 onClick={toggleDropdown}
@@ -718,8 +718,8 @@ export default function Navbar() {
                                             )}
                                         </div>
                                     )} */}
-                                    </div>
-                                ))}
+                                  </div>
+                              ))}
                             </div>
                         </DialogPanel>
                     </Dialog>
@@ -728,164 +728,3 @@ export default function Navbar() {
         </header>
     );
 }
-
-// dropdown
-// 'use client';
-
-// import { useState } from 'react';
-// import {
-//   Dialog, DialogPanel
-// } from '@headlessui/react';
-// import {
-//   Bars3Icon, XMarkIcon, MapPinIcon, PhoneIcon,
-//   MagnifyingGlassIcon, HeartIcon, ShoppingCartIcon,
-//   UserIcon, ChevronDownIcon
-// } from '@heroicons/react/24/outline';
-// import logo from '../assest/logo/navLogo.png';
-
-// const navigation = [
-//   { name: 'Engagement', href: '#', megaMenu: true,
-//     items: [
-//       { name: 'Rings', href: '#' },
-//       { name: 'Solitaire', href: '#' },
-//       { name: 'Halo', href: '#' }
-//     ]
-//   },
-//   { name: 'Wedding', href: '#', megaMenu: true,
-//     items: [
-//       { name: 'Wedding Rings', href: '#' },
-//       { name: 'Wedding Bands', href: '#' }
-//     ]
-//   },
-//   { name: 'Jewelry', href: '#', megaMenu: true,
-//     items: [
-//       { name: 'Earrings', href: '#' },
-//       { name: 'Necklaces', href: '#' },
-//       { name: 'Bracelets', href: '#' }
-//     ]
-//   },
-//   { name: 'Diamonds', href: '#' },
-//   { name: 'Truly Custom', href: '#' },
-//   { name: 'Collections', href: '#' },
-//   { name: 'Gemstones Jewelry', href: '#' },
-//   { name: 'Education', href: '#' }
-// ];
-
-// const countryList = [
-//   { code: 'us', name: 'United States' },
-//   { code: 'gb', name: 'United Kingdom' },
-//   { code: 'fr', name: 'France' },
-//   { code: 'de', name: 'Germany' },
-//   { code: 'jp', name: 'Japan' }
-//   // Add more countries as needed
-// ];
-
-// export default function Navbar() {
-//   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-//   const [dropdownOpen, setDropdownOpen] = useState(false);
-//   const [selectedCountry, setSelectedCountry] = useState('us');
-//   const [activeMenu, setActiveMenu] = useState(null);
-
-//   const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
-
-//   const selectCountry = (code) => {
-//     setSelectedCountry(code);
-//     setDropdownOpen(false);
-//   };
-
-//   const handleMouseEnter = (name) => {
-//     setActiveMenu(name);
-//   };
-
-//   const handleMouseLeave = () => {
-//     setActiveMenu(null);
-//   };
-
-//   return (
-//     <header className="bg-[#FCF9F0] figtree">
-//       {/* Top Nav */}
-//       <nav aria-label="Global" className="mx-auto hidden lg:flex max-w-[110rem] items-center justify-between p-3 lg:px-3 xl:px-2 border-b border-[#16528F]">
-//         <div className="flex items-center space-x-4">
-//           <div className="flex items-center">
-//             <MapPinIcon className="w-5 h-5 mr-1 text-gray-700" />
-//             <span className="text-gray-700 text-[14px] xl:text-[16px] uppercase ms-2 font-[500] figtree">Location</span>
-//           </div>
-//           <div className="flex items-center">
-//             <PhoneIcon className="w-5 h-5 mr-1 text-gray-700 ms-4" />
-//             <span className="text-gray-700 text-[14px] xl:text-[16px] uppercase ms-2 font-[500] figtree">Contact Us</span>
-//           </div>
-//         </div>
-
-//         {/* Center Logo */}
-//         <NavLink to="#" className="-m-1.5 p-1.5 relative left-[10px] xl:left-[80px] mainlogo">
-//           <h1 className='uppercase text-[20px] md:text-[20px] xl:text-[35px] font-bold tracking-[7px] text-[#16528F] Organum'>JewellsJewels</h1>
-//         </NavLink>
-
-//         {/* Right Side */}
-//         <div className="flex items-center space-x-6">
-//           <div className="relative border-b border-gray-400 w-[150px] xl:w-[230px]">
-//             <input
-//               type="text"
-//               className="border-none py-1 pl-0 pr-0 text-sm focus:outline-none w-[150px] xl:w-[230px] bg-transparent"
-//               placeholder="Search..."
-//             />
-//           </div>
-//           <MagnifyingGlassIcon className="w-6 h-6 text-gray-700 cursor-pointer hover:text-black" />
-//           <div className="relative ml-3" style={{ marginLeft: '15px' }}>
-//             <HeartIcon className="w-6 h-6 text-gray-700 cursor-pointer hover:text-black" />
-//             <span className="absolute px-1 text-xs text-white bg-red-500 rounded-full -top-1 -right-2">0</span>
-//           </div>
-//           <ShoppingCartIcon className="w-6 h-6 text-gray-700 cursor-pointer hover:text-black" />
-//           <UserIcon className="w-6 h-6 text-gray-700 cursor-pointer hover:text-black" />
-//           <div className="relative">
-//             <button onClick={toggleDropdown} className="flex items-center space-x-2">
-//               <img
-//                 src={`https://flagcdn.com/w20/${selectedCountry}.png`}
-//                 alt="Country Flag"
-//                 className="object-cover w-5 h-4"
-//               />
-//               <ChevronDownIcon className="w-5 h-5 text-gray-700" />
-//             </button>
-//             {dropdownOpen && (
-//               <div className="absolute right-0 z-10 w-40 mt-2 bg-white border border-gray-300 rounded-md shadow-lg top-full">
-//                 {countryList.map((country) => (
-//                   <button key={country.code} onClick={() => selectCountry(country.code)} className="flex items-center w-full px-2 py-1 hover:bg-gray-100">
-//                     <img src={`https://flagcdn.com/w20/${country.code}.png`} alt={country.name} className="object-cover w-6 h-4" />
-//                     <span className="ml-2 text-sm">{country.name}</span>
-//                   </button>
-//                 ))}
-//               </div>
-//             )}
-//           </div>
-//         </div>
-//       </nav>
-
-//       {/* Bottom Menu with Mega Menu */}
-//       <div className="mx-auto hidden lg:flex justify-between space-x-6 bg-[#FCF9F0] py-5 max-w-[110rem] lg:px-2 relative">
-//         {navigation.map((item) => (
-//           <div
-//             key={item.name}
-//             className="relative"
-//             onMouseEnter={() => handleMouseEnter(item.name)}
-//             onMouseLeave={handleMouseLeave}
-//           >
-//             <NavLink to={item.href} className="figtree font-[500] uppercase leading-6 text-[14px] xl:text-[16px] text-gray-900 hover:text-gray-700">
-//               {item.name}
-//             </NavLink>
-
-//             {/* Mega Menu */}
-//             {item.megaMenu && activeMenu === item.name && (
-//               <div className="absolute left-0 top-full mt-2 w-[300px] p-6 bg-white shadow-lg rounded-lg z-20 grid grid-cols-2 gap-4">
-//                 {item.items.map((subItem) => (
-//                   <NavLink key={subItem.name} href={subItem.href} className="text-sm text-gray-900 hover:text-gray-700">
-//                     {subItem.name}
-//                   </NavLink>
-//                 ))}
-//               </div>
-//             )}
-//           </div>
-//         ))}
-//       </div>
-//     </header>
-//   );
-// }

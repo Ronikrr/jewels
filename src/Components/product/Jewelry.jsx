@@ -18,7 +18,7 @@ const filterOptions = {
 };
 const Jewelry = () => {
     const { category } = useParams();
-    console.log(category)
+   
     const filteredProducts = product.filter(item =>
         item.category.toLowerCase() === category.toLowerCase()
     );
@@ -60,14 +60,7 @@ const Jewelry = () => {
                                           </div>
                                           <div className="ml-auto flex-0 p-[12px]">
                                               <select name="" className="px-4 py-2 border border-[#1c1c1c]" id="">
-                                                  <option value="Best seller">Best seller</option>
-                                                  <option value="Best seller">Best seller</option>
-                                                  <option value="Best seller">Best seller</option>
-                                                  <option value="Best seller">Best seller</option>
-                                                  <option value="Best seller">Best seller</option>
-                                                  <option value="Best seller">Best seller</option>
-                                                  <option value="Best seller">Best seller</option>
-                                                  <option value="Best seller">Best seller</option>
+                                              <option value="Best seller">Best seller</option>
                                               </select>
                                           </div>
                                       </div>
