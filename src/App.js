@@ -22,12 +22,14 @@ import Productview from './Components/product/productview';
 import Contactusfrom from './Components/product/contactsectionpage'
 import Contactusfrominqury from './Components/product/Contactusfrominqury'
 import Jewelry from './Components/product/Jewelry';
+import ScrollToTop from './Components/ui/ScrollToTop'
 function App() {
   return (
     <Router>
       <div className="">
         <NavAds />
         <Navbar />
+        <ScrollToTop />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/product' element={<Product />} />
